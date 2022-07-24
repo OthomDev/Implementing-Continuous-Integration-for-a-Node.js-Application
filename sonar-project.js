@@ -8,7 +8,7 @@ scanner(
       'sonar.projectName': 'Project_1',
       'sonar.projectDescription': '',
       'sonar.sources': 'dist',
-      'sonar.tests': 'specs'
+     // 'sonar.tests': 'specs'
     }
   },
   () => process.exit()
