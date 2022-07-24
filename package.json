@@ -48,7 +48,6 @@
     ]
   },
     "scripts": {
-      …
       "sonar": "node sonar-project.js"
   },
   "devDependencies": {
