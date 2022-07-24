@@ -7,7 +7,7 @@ scanner(
     options: {
       'sonar.projectName': 'Project_1',
       'sonar.projectDescription': '',
-      'sonar.sources': 'dist',
+      //'sonar.sources': 'dist',
      // 'sonar.tests': 'specs'
     }
   },
