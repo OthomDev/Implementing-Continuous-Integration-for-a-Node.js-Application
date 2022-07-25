@@ -49,7 +49,6 @@
   },
    "scripts": {
       "sonar": "node sonar-project.js"
-      "start": "node your-script.js"
  },
   "devDependencies": {
     "@types/react-router-dom": "^5.3.3",
