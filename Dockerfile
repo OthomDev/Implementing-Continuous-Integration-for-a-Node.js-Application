@@ -17,4 +17,4 @@ RUN npm install react-scripts@3.4.1 -g --save
 COPY . ./
 
 # start app
-CMD ["npm", "start"]
+RUN npm run build
