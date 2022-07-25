@@ -11,5 +11,5 @@ scanner(
      // 'sonar.tests': 'specs'
     }
   },
-  () => process.exit()
+  () => process.exit() 
 )
