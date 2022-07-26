@@ -21,7 +21,7 @@ pipeline {
                 git 'https://github.com/OthomDev/test11'
                 //echo 'Finshed downloading git'
                 //force stop docker and clean up images
-                //sh "docker system prune -af"
+                sh "docker system prune -af"
             }
         }
         //stage('SonarQube Analysis'){
