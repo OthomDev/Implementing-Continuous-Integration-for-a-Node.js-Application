@@ -6,7 +6,7 @@ pipeline {
         registrycredential = 'dockerhub_id'
         dockerimage = ''
     }
-    agent { dockerfile true }
+    agent any
     // first step is to download git file
     stages {
         stage('Build') {
