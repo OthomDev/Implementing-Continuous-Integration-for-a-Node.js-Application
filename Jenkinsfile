@@ -20,8 +20,8 @@ pipeline {
             steps {
                 git 'https://github.com/OthomDev/test11'
                 //echo 'Finshed downloading git'
-                // force stop docker and clean up images
-                //sh "docker system prune -af"
+                force stop docker and clean up images
+                sh "docker system prune -af"
             }
         }
         //stage('SonarQube Analysis'){
@@ -45,16 +45,16 @@ pipeline {
          ///   }
        // }  
         
-        //stage('Build Image') {
-            //steps {
-                //script{
+        stage('Build Image') {
+            steps {
+                script{
                     //reference: https://www.jenkins.io/doc/book/pipeline/jenkinsfile/
-                   // img = registry + ":${env.BUILD_ID}"
+                   img = registry + ":${env.BUILD_ID}"
                     //reference: https://docs.cloudbees.com/docs/admin-resources/latest/plugins/docker-workflow
-                   // dockerImage = docker.build("${img}")
-               // }
-           // }
-      //  }
+                   dockerImage = docker.build("${img}")
+                }
+            }
+        }
 
       //  stage('Push To DockerHub') {
        //     steps {
