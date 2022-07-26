@@ -9,7 +9,6 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 
 COPY package.json /usr/src/app/package.json
 RUN npm install -g npm@8.15.0 --silent
-RUN npm audit fix --force
 COPY . /usr/src/app/
 RUN npm run build
 
