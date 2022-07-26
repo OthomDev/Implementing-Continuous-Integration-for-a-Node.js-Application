@@ -8,7 +8,7 @@ pipeline {
    // }
     agent any
     // first step is to download git file
-  // stages {
+   stages {
        // stage('Build') {
         //    steps {
           //      nodejs(nodeJSInstallationName: 'nodejs') {
