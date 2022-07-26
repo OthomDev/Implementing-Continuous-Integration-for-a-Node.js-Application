@@ -1,21 +1,21 @@
 def img
 pipeline {
     // setting up dockhub information needed to push image.
-    environment {
-        registry = "othom/othomdev"
-        registrycredential = 'dockerhub'
-        dockerimage = ''
-    }
+    //environment {
+       // registry = "othom/othomdev"
+        //registrycredential = 'dockerhub'
+        //dockerimage = ''
+   // }
     agent any
     // first step is to download git file
-    stages {
-        stage('Build') {
-            steps {
-                nodejs(nodeJSInstallationName: 'nodejs') {
-                    sh 'npm install'
-                }
-            }
-        }
+  // stages {
+       // stage('Build') {
+        //    steps {
+          //      nodejs(nodeJSInstallationName: 'nodejs') {
+         //           sh 'npm install'
+           //     }
+         //   }
+      //  }
         stage('download') {
             steps {
                 git 'https://github.com/OthomDev/test11'
