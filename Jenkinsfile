@@ -1,11 +1,11 @@
 def img
 pipeline {
     // setting up dockhub information needed to push image.
-    //environment {
-       // registry = "othom/othomdev"
-        //registrycredential = 'dockerhub'
-        //dockerimage = ''
-   // }
+    environment {
+        registry = "othom/othomdev"
+        registrycredential = 'dockerhub'
+        dockerimage = ''
+    }
     agent any
     // first step is to download git file
    stages {
