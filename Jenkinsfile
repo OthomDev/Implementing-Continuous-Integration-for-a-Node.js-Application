@@ -6,6 +6,7 @@ pipeline {
   stages {
     stage('cleanup') {
       steps {
+        sh 'docker system prune -af '
         sh 'whoami'
         sh 'ls -al'
         sh 'docker build --target web -t othom/othomdev:1 .'
