@@ -1,15 +1,15 @@
 # build environment
 FROM node:18-alpine3.15 as builder
 
-RUN mkdir -p /usr/src/app
+RUN mkdir -p /app
 
-WORKDIR /usr/src/app
-
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-
-COPY package.json /usr/src/app/package.json
-RUN npm install
-COPY . /usr/src/app
+WORKDIR /app
+ENV PATH /app/node_modules/.bin:$PATH
+COPY package.json ./
+COPY package-lock.json ./
+RUN npm ci --silent
+RUN npm install react-scripts@3.4.1 -g --silent
+COPY . ./
 RUN npm run build
 
 
