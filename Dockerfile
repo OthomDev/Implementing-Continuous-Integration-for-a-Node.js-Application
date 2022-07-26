@@ -9,7 +9,7 @@ ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY package.json /usr/src/app/package.json
 RUN npm install --silent
 COPY . /usr/src/app/
-CMD ["npm", "run" ,"build"]
+CMD ["npm", "start"]
 
 # production environment
 FROM nginx:1.23.1-alpine
