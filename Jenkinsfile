@@ -21,29 +21,29 @@ pipeline {
                 git 'https://github.com/OthomDev/test11'
                 echo 'Finshed downloading git'
                 // force stop docker and clean up images
-                sh "docker system prune -af"
+                //sh "docker system prune -af"
             }
         }
-        stage('SonarQube Analysis'){
-            steps{
-                nodejs(nodeJSInstallationName: 'nodejs'){
-                    sh "npm install"
-                    withSonarQubeEnv('SonarQube'){
-                        sh "npm install -g typescript"
-                        sh "npm install sonarqube-scanner --save -dev"
+        //stage('SonarQube Analysis'){
+            //steps{
+               // nodejs(nodeJSInstallationName: 'nodejs'){
+                //    sh "npm install"
+                //    withSonarQubeEnv('SonarQube'){
+                 //       sh "npm install -g typescript"
+                  //      sh "npm install sonarqube-scanner --save -dev"
                         //do not uncomment this sh "npm install -g sonarqube-scanner"
-                        sh "npm run sonar"
-                    }
-                }
-            }
-        }
-        stage("Quality Gate") {
-            steps {
-              timeout(time: 1, unit: 'HOURS') {
-                waitForQualityGate abortPipeline: true
-              }
-            }
-        }  
+                  //      sh "npm run sonar"
+                 //   }
+                //}
+           // }
+       // }
+        //stage("Quality Gate") {
+        //    steps {
+          //    timeout(time: 1, unit: 'HOURS') {
+         //       waitForQualityGate abortPipeline: true
+         //     }
+         ///   }
+       // }  
         
         stage('Build Image') {
             steps {
