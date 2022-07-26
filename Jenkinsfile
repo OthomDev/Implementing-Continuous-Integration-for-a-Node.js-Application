@@ -13,7 +13,6 @@ pipeline {
             steps {
                 nodejs(nodeJSInstallationName: 'nodejs') {
                     sh 'npm install'
-                    sh 'npm audit fix --force'
                 }
             }
         }
