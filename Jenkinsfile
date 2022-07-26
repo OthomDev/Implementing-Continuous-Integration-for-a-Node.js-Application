@@ -19,7 +19,7 @@ pipeline {
         stage('download') {
             steps {
                 git 'https://github.com/OthomDev/test11'
-                echo 'Finshed downloading git'
+                //echo 'Finshed downloading git'
                 // force stop docker and clean up images
                 //sh "docker system prune -af"
             }
