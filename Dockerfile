@@ -18,7 +18,7 @@ RUN npm run-script build
 
 # production environment
 FROM nginx:1.23.1-alpine as web
-COPY --from=builder /usr/src/app/build /usr/share/nginx/html/
+COPY --from=builder /app /usr/share/nginx/html/
 # COPY --from=builder /usr/src/app/build /var/www/html/
 # RUN sed -i 's#root   /usr/share/nginx/html;#root   /var/www/html;#' /etc/nginx/conf.d/default.conf
 EXPOSE 80
