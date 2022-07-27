@@ -2,8 +2,8 @@ const scanner = require('sonarqube-scanner');
 
 scanner(
   {
-    serverUrl : 'http://localhost:9000/',
-    token : "squ_38fefbe29351db475280f7a406f83ac850577d45",
+    serverUrl : 'https://sonarcloud.io',
+    token : "341e3b2e92ebb55a44d971bb63532856cf4b977e",
     
     options: {
       'sonar.projectName': 'Project_1',
