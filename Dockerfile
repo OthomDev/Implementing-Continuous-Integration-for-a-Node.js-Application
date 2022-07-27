@@ -1,15 +1,20 @@
 FROM node:18-alpine3.15 as builder
 
-RUN mkdir -p /usr/src/app
+# set working directory
+WORKDIR /app
+# add `/app/node_modules/.bin` to $PATH
+ENV PATH /app/node_modules/.bin:$PATH
+# install app dependencies
+COPY package*.json ./
+#RUN npm install
+RUN npm install
 
-WORKDIR /usr/src/app
+# add app
+COPY . ./
 
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
+#build for production
+RUN npm run-script build
 
-COPY package.json /usr/src/app/package.json
-RUN npm install react-scripts -g
-COPY . /usr/src/app/
-RUN npm run build
 
 # production environment
 FROM nginx:1.23.1-alpine as web
