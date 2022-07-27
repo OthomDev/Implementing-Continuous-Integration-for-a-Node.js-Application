@@ -3,7 +3,7 @@ pipeline {
     // setting up dockhub information needed to push image.
     environment {
         registry = "othom/flask"
-        registrycredential = 'dockerhub'
+        registrycredential = 'dockerhub_id'
         dockerimage = ''
     }
     agent any
@@ -56,16 +56,16 @@ pipeline {
             }
         }
 
-      //  stage('Push To DockerHub') {
-       //     steps {
-              //  script{
-                //    docker.withRegistry( 'https://registry.hub.docker.com ', registryCredential ) {
+        stage('Push To DockerHub') {
+            steps {
+                script{
+                    docker.withRegistry( 'https://registry.hub.docker.com ', registryCredential ) {
                         //push image to registry
-                   //     dockerImage.push()
-                   // }
-              //  }
-           //}
-        //}
+                        dockerImage.push()
+                    }
+                }
+           }
+        }
 
     }
 
