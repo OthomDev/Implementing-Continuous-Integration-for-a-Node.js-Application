@@ -1,4 +1,4 @@
-FROM node:18-buster-slim AS builder
+FROM node:latest AS builder
 RUN mkdir -p /usr/src/app
 LABEL builder="true"
 WORKDIR /usr/src/app
