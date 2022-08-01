@@ -24,7 +24,7 @@ pipeline {
                 sh "docker system prune -af"
             }
         }
-        stage('SonarQube Analysis'){
+       /* stage('SonarQube Analysis'){
             steps{
                 nodejs(nodeJSInstallationName: 'nodejs'){
                     sh "npm install"
@@ -43,7 +43,7 @@ pipeline {
                 waitForQualityGate abortPipeline: true
               }
            }
-        }  
+        }*/  
         
         stage('Build Image') {
             steps {
