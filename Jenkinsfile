@@ -9,13 +9,13 @@ pipeline {
     agent any
     // first step is to download git file
    stages {
-        /*stage('Build') {
+        stage('Build') {
             steps {
                 nodejs(nodeJSInstallationName: 'nodejs') {
                    sh 'npm install -g typescript'
                 }
             }
-        }*/
+        }
         stage('download') {
             steps {
                 git 'https://github.com/OthomDev/test11'
