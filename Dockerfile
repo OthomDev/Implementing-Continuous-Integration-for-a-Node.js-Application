@@ -7,10 +7,7 @@ ENV PATH ./node_modules/.bin:$PATH
 
 COPY package.json ./package.json
 
-#use the minified build file for production, not now - npm start is for development.
-#COPY ./build/* ./public/ 
 
-#copy your project files: (also bad for development, use volume(https://docs.docker.com/storage/volumes/) instead)
 COPY . . 
 RUN npm run build
 
