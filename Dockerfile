@@ -2,7 +2,7 @@ FROM node:18-bullseye-slim AS builder
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /usr/src/app
-RUN npm ci --silent && npm run build
+RUN npm run build
 
 # production environment
 FROM nginx:1.23.1-alpine AS web
