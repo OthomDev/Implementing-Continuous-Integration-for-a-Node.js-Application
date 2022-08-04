@@ -1,4 +1,4 @@
-FROM node:18-bullseye-slim AS builder
+FROM othom/baseimage:latest AS builder
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
 COPY . /usr/src/app
