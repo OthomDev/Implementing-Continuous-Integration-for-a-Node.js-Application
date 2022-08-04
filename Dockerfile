@@ -1,11 +1,17 @@
 FROM othom/baseimage:latest AS builder
-RUN mkdir -p /usr/src/app
-WORKDIR /usr/src/app
-ENV PATH /usr/src/app/node_modules/.bin:$PATH
-COPY package.json /usr/src/app/package.json
-#RUN npm install --omit=dev
-#RUN npm install react-scripts@1.1.1 -g --silent
-COPY . /usr/src/app
+# set working directory
+WORKDIR ./
+
+# add `//node_modules/.bin` to $PATH
+ENV PATH ./node_modules/.bin:$PATH
+
+COPY package.json ./package.json
+
+#use the minified build file for production, not now - npm start is for development.
+#COPY ./build/* ./public/ 
+
+#copy your project files: (also bad for development, use volume(https://docs.docker.com/storage/volumes/) instead)
+COPY . . 
 RUN npm run build
 
 
