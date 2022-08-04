@@ -1,7 +1,7 @@
 FROM node:18-bullseye-slim AS builder
 WORKDIR /usr/src/app
 ENV PATH /usr/src/app/node_modules/.bin:$PATH
-COPY ./frontend /usr/src/app
+COPY . /usr/src/app
 RUN npm ci --silent && npm run build
 
 # production environment
