@@ -2,7 +2,7 @@ def img
 pipeline {
     // setting up dockhub information needed to push image.
     environment {
-        registry = "othom/e-commerce-frontend-blue"
+        registry = "othom/mysolution"
         registrycredential = 'dockerhub'
         dockerimage = ''
     }
