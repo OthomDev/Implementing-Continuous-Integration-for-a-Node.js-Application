@@ -6,8 +6,36 @@ pipeline {
         registrycredential = 'dockerhub'
         dockerimage = ''
     }
-    agent any
-    // first step is to download git file
+   agent {
+      yaml '''
+        apiVersion: v1
+        kind: Pod
+        spec:
+          containers:
+          - name: node
+            image: node:18-alpine3.15
+            command:
+            - cat
+            tty: true
+          - name: kubectl
+            image: gcr.io/cloud-builders/kubectl
+            command:
+            - cat
+            tty: true
+          - name: docker
+            image: docker:latest
+            command:
+            - cat
+            tty: true
+            volumeMounts:
+             - mountPath: /var/run/docker.sock
+               name: docker-sock
+          volumes:
+          - name: docker-sock
+            hostPath:
+              path: /var/run/docker.sock
+        '''
+  }
    stages {
         stage('Build') {
             steps {
