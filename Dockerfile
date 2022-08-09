@@ -1,11 +1,5 @@
-FROM othom/baseimage:latest as build
-WORKDIR /app
-ENV PATH /app/node_modules/.bin:$PATH
-COPY package.json ./
-COPY package-lock.json ./
-RUN npm install -g serve
-RUN npm install react-scripts@3.4.1 -g --silent
-COPY . ./
+FROM node:latest as build
+COPY . .
 RUN npm run build
 
 # production environment
